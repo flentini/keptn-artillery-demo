@@ -3,6 +3,6 @@ workloads:
   - teststrategy: functional
     script: scenarios/basic.yaml
   - teststrategy: performance
-    script: scenarios/load.yaml
+    script: scenarios/basic.yaml
   - teststrategy: functional_light
     script: scenarios/health.yaml
