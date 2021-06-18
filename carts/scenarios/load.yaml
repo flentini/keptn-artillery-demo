@@ -1,8 +1,8 @@
 config:
   phases:
-    - duration: 50
+    - duration: 120
       arrivalRate: 5
-      rampTo: 50
+      rampTo: 100
 scenarios:
   - flow:
       - get:
