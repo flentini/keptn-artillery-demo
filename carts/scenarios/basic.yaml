@@ -7,14 +7,48 @@ config:
 scenarios:
   - flow:
       - get:
-          url: "/"
-          expect:
-            - statusCode: 200
-      - get:
           url: "/carts/1"
           expect:
             - statusCode: 200
+      - post:
+          url: "/carts/1/items"
+          json:
+            itemId: "abcde"
+            quantity: 1
+            unitPrice: 10
+          expect:
+            - statusCode: 201
       - get:
-          url: "/health"
+          url: "/carts/1/items"
+          capture:
+            - json: "$[0].quantity"
+              as: quantity
           expect:
             - statusCode: 200
+            - contentType: json
+            - equals:
+              - "1"
+              - "{{ quantity }}"
+      - patch:
+          url: "/carts/1/items"
+          json:
+            itemId: "abcde"
+            quantity: 2
+            unitPrice: 10
+          expect:
+            - statusCode: 202
+      - get:
+          url: "/carts/1/items"
+          capture:
+            - json: "$[0].quantity"
+              as: quantity
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - equals:
+              - "2"
+              - "{{ quantity }}"
+      - delete:
+          url: "/carts/1"
+          expect:
+            - statusCode: 202
