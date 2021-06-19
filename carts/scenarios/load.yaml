@@ -3,14 +3,19 @@ config:
     - duration: 60
       arrivalRate: 0
       rampTo: 10
+  variables:
+    customerId:
+      - "1"
+      - "2"
+      - "3"
 scenarios:
   - flow:
       - get:
-          url: "/carts/1"
+          url: "/carts/{{ customerId }}"
       - get:
-          url: "/carts/1/items"
+          url: "/carts/{{ customerId }}/items"
       - post:
-          url: "/carts/1/items"
+          url: "/carts/{{ customerId }}/items"
           json:
             itemId: "6d50b722-6596-4abd-8f10-f274275f4ec3"
             quantity: 2
