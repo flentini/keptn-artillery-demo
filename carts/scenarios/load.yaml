@@ -13,14 +13,14 @@ scenarios:
           url: "/"
       - get:
           url: "/carts/{{ customerId }}"
+      - get:
+          url: "/carts/{{ customerId }}/items"
+      - think: 2
       - post:
           url: "/carts/{{ customerId }}/items"
           json:
             itemId: "6d50b722-6596-4abd-8f10-f274275f4ec3"
             quantity: 2
             unitPrice: 10.50
-      - think: 2
-      - get:
-          url: "/carts/{{ customerId }}/items"
       - get:
           url: "/health"
