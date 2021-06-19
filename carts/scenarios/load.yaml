@@ -9,7 +9,6 @@ scenarios:
           url: "/carts/1"
       - get:
           url: "/carts/1/items"
-      - think: 1
       - post:
           url: "/carts/1/items"
           json:
