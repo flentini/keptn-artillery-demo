@@ -1,7 +1,7 @@
 config:
   phases:
     - duration: 60
-      arrivalCount: 2
+      arrivalCount: 1
   variables:
     customerId:
       - "1"
