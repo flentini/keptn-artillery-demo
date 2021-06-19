@@ -1,23 +1,17 @@
 config:
   phases:
     - duration: 60
-      arrivalCount: 1
-  variables:
-    customerId:
-      - "1"
-      - "2"
-      - "3"
+      arrivalRate: 0
+      rampTo: 10
 scenarios:
   - flow:
       - get:
-          url: "/"
+          url: "/carts/1"
       - get:
-          url: "/carts/{{ customerId }}"
-      - get:
-          url: "/carts/{{ customerId }}/items"
-      - think: 2
+          url: "/carts/1/items"
+      - think: 1
       - post:
-          url: "/carts/{{ customerId }}/items"
+          url: "/carts/1/items"
           json:
             itemId: "6d50b722-6596-4abd-8f10-f274275f4ec3"
             quantity: 2
