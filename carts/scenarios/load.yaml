@@ -1,15 +1,12 @@
 config:
   phases:
-    - duration: 120
-      arrivalRate: 2
-      rampTo: 50
+    - duration: 60
+      arrivalCount: 2
   variables:
     customerId:
       - "1"
       - "2"
       - "3"
-      - "4"
-      - "5"
 scenarios:
   - flow:
       - get:
