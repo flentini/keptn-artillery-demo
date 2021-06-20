@@ -1,8 +1,7 @@
 config:
   phases:
     - duration: 60
-      arrivalRate: 0
-      rampTo: 10
+      arrivalRate: 5
   variables:
     customerId:
       - "1"
