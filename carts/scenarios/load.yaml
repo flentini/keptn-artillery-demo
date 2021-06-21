@@ -1,7 +1,8 @@
 config:
   phases:
-    - duration: 60
+    - duration: 120
       arrivalRate: 5
+      rampTo: 60
   variables:
     customerId:
       - "1"
@@ -19,5 +20,3 @@ scenarios:
             itemId: "6d50b722-6596-4abd-8f10-f274275f4ec3"
             quantity: 2
             unitPrice: 10.50
-      - get:
-          url: "/health"
